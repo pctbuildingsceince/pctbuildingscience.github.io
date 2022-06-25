@@ -3,18 +3,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>contact form</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
 
+<header>
+
+    <!-- our main logo -->
+    <a id="logo" href="index.html">
+        <img class="logo" src="Images/borderlogo.png" alt="Logo">
+        
+    </a>
+
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Our Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
 <link href="contact-form.css" rel="stylesheet">
 
-<div class="fcf-body"> 
+<div class="fcf-body", style="padding-top: 130px;"> 
 
     <div id="fcf-form">
     <h3 class="fcf-h3">Contact us</h3>
 
-    <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+    <form id="fcf-form-id" class="fcf-form-class" method="post" action="https://formsubmit.co/lukas.em.timusk@gmail.com" method="POST">
         
         <div class="fcf-form-group">
             <label for="Name" class="fcf-label">Your name</label>
@@ -41,14 +61,20 @@
             <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
         </div>
 
-        <div class="fcf-credit" id="fcf-credit">
-        Simple HTML email form provided by: <a href="https://www.freecontactform.com" target="_blank">FreeContactForm.com</a>
-        </div>
+        
 
     </form>
     </div>
 
 </div>
+
+<!--
+<form action="https://formsubmit.co/your@email.com" method="POST">
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+-->
+</form>
 
 </body>
 </html>

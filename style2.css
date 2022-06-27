@@ -31,7 +31,7 @@ header   {
   display: inline-block;
   color: #FFF;
   text-decoration: none;
-  width: 49%;
+  width: 10%;
 }
 #logo img    {
   
@@ -39,6 +39,7 @@ header   {
   margin-right: 8px;
   vertical-align: middle;
 }
+
 #logo span   {
   display: inline-block;
 }
@@ -47,7 +48,7 @@ header   {
 .logo{
 
   
-  width: 150px;
+  width: 100px;
   height: 100px;
 
 }

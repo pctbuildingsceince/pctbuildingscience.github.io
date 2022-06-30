@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PCT Building Science Inc.</title>
+
+
+    <!-- attach our stylesheet -->
+    <!-- attach ttt stylesheet -->
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <!-- the header -->
+<header>
+
+    <!-- our main logo -->
+    <a id="logo" href="index.html">
+        <img class="logo" src="Images/borderlogo.png" alt="Logo">
+        
+    </a>
+
+
+    <!-- main navigation links -->
+    <nav>
+        <ul>
+            <li><a href="index.html", style="padding-right: 20px;">PCT BUILDING SCIENCE INC</a></li>
+            <li><a href="index.html">About us</a></li>
+            <li><a href="ourwork.html">Our Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- the content -->
+
+
+        <!-- hero content -->
+
+
+    <!-- features section -->
+    <div class="site-section">
+    <div class="site-section-inside">
+
+        <div class="section-header", style="padding-top: 100px;">
+            <h2>Our Work</h2>
+        </div>
+
+
+<!-- ******************************** First Grid ******************************** -->
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h2 class="w3-padding-32"> The Company</h2>
+
+      <p class="w3-text-grey">
+
+        For over 20 years PCT Building Science (incorporated in 2015) has been helping solve problems with
+        buildings. We help our clients with a range of services including forensic investigations of building
+        failures, design reviews for energy efficiency, durability and occupant comfort, advice and guidance on
+        building retrofits, acting as expert witness in litigation, and solving building deficiency issues to achieve
+        resolution with suppliers and trades. <br><br>
+        We are a small, specialized company operating out of the GTA over all of Ontario, working with clients
+        from individual homeowners to large companies with large commercial and multi unit residential
+        buildings. We are the consultants often hired by other consultants so solve difficult cases.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h2>Areas of Specialized Expertise:</h2>
+
+      <ul class="w3-text-grey">
+        <li>Water leak investigation</li>
+        <li>Wood and other flooring failures</li>
+        <li>Complex moisture issues</li>
+        <li>Basement and crawlspace issues</li>
+        <li>Cladding/siding failures</li>
+        <li>Condensation issues</li>
+        <li>Infrared heat loss/gain investigations</li>
+        <li>Mould and decay investigations</li> </ul>
+    </div>
+  </div>
+
+
+<!-- ******************************** END OF GRIDS ******************************** -->
+
+
+
+    <!-- the footer -->
+    <footer>
+        <img src="img/avatar.jpeg" alt="Footer Logo">
+        <span>PCT Building Science<br>Copyright &copy; 2016-2022 </span>
+    </footer>
+
+<script>
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

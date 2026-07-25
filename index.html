@@ -43,7 +43,7 @@
         "addressRegion": "ON",
         "addressCountry": "CA"
       },
-      "areaServed": ["Toronto", "GTA", "Ontario"],
+      "areaServed": ["Toronto", "Oakville", "Mississauga", "Hamilton", "Burlington", "Milton", "GTA", "Ontario"],
       "serviceType": ["Building Science Consulting", "Moisture Investigation", "Vapour Barrier Analysis", "Building Forensics"]
     }
     </script>
@@ -72,31 +72,30 @@
 
 <!-- Slideshow Section -->
 <div class="slideshow-container">
-    <div class="mySlides fade">
+    <div class="mySlides" style="background-image:url('img/Cover2.png');">
         <div class="numbertext">1 / 3</div>
-        <img src="img/Wall1.jpg" alt="Building envelope investigation" style="width:100%">
+        <img src="img/Cover2.png" alt="Moisture investigation equipment">
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides" style="background-image:url('img/Wall1.jpg');">
         <div class="numbertext">2 / 3</div>
-        <img src="img/Cover1.jpg" alt="Building science fieldwork" style="width:100%">
+        <img src="img/Wall1.jpg" alt="Building envelope investigation">
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides" style="background-image:url('img/Cover1.jpg');">
         <div class="numbertext">3 / 3</div>
-        <div class="lengthy">
-            <img src="img/Cover2.png" alt="Moisture investigation equipment" style="width:100%">
-        </div>
+        <img src="img/Cover1.jpg" alt="Building science fieldwork">
     </div>
 
     <a class="prev" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</a>
     <a class="next" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</a>
 </div>
 
-<div style="text-align:center" class="slide-dots">
-    <span class="dot" onclick="currentSlide(1)" aria-label="Go to slide 1"></span> 
-    <span class="dot" onclick="currentSlide(2)" aria-label="Go to slide 2"></span> 
-    <span class="dot" onclick="currentSlide(3)" aria-label="Go to slide 3"></span> 
+<div class="scroll-cue">&#8595; Scroll to learn more</div>
+
+<!-- Service Area Banner -->
+<div class="service-banner">
+    <p><strong>Serving Toronto, Oakville, Mississauga, Hamilton, Burlington, Milton</strong> and communities across Ontario — including Brampton, Markham, Richmond Hill, Vaughan, Pickering, Ajax, Whitby &amp; Oshawa.</p>
 </div>
 
 <!-- Main Content -->
@@ -164,30 +163,55 @@
 
 <script>
 var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
+var slideTimer;
 
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].classList.remove("active-slide");
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
+    slides[slideIndex - 1].classList.add("active-slide");
+    if (dots.length > 0) {
+        dots[slideIndex - 1].className += " active";
+    }
+}
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+    resetTimer();
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+    resetTimer();
+}
+
+function startTimer() {
+    slideTimer = setInterval(function () {
+        showSlides(slideIndex += 1);
+    }, 6000);
+}
+
+function resetTimer() {
+    clearInterval(slideTimer);
+    startTimer();
+}
+
+showSlides(slideIndex);
+startTimer();
+
+var slideshowEl = document.querySelector(".slideshow-container");
+if (slideshowEl) {
+    slideshowEl.addEventListener("mouseenter", function () { clearInterval(slideTimer); });
+    slideshowEl.addEventListener("mouseleave", function () { startTimer(); });
 }
 </script>
 </body>

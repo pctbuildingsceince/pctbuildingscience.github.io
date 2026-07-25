@@ -359,38 +359,176 @@ footer img {
     padding: 20px;
 }
 
-/* Slideshow Styles */
-/* Slideshow Styles */
+/* ================================================================
+   SERVICE AREA BANNER (new)
+   Consistent, SEO-friendly service area statement used on the
+   homepage and contact page near the top / main CTA.
+================================================================ */
+.service-banner {
+    background: #eaf4fc;
+    border-top: 1px solid #d3e8f7;
+    border-bottom: 1px solid #d3e8f7;
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.service-banner p {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #2c3e50;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.service-banner strong {
+    color: #1a5f8c;
+}
+
+/* ================================================================
+   CASE STUDY NAV CARDS (new)
+   Card-based anchor navigation at the top of the Our Work page.
+================================================================ */
+.case-nav-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+.case-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.case-nav-card {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid #3498db;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.case-nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.case-nav-card h3 {
+    color: #2c3e50;
+    font-size: 19px;
+    margin: 0 0 10px;
+}
+
+.case-nav-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 14px;
+}
+
+.case-nav-card .case-nav-link {
+    color: #3498db;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.tag-pill {
+    display: inline-block;
+    background: #eaf4fc;
+    color: #1a5f8c;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.case-study-anchor {
+    scroll-margin-top: 130px; /* offsets fixed header when jumping to an anchor */
+}
+
+.back-to-top {
+    display: inline-block;
+    margin-top: 20px;
+    color: #3498db;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
+}
+
+/* ================================================================
+   SLIDESHOW (redesigned for smoother crossfade + shorter height)
+================================================================ */
 .slideshow-container {
     max-width: 100%;
+    width: 100%;
     position: relative;
     margin: auto;
-    padding-top: 120px;
-    display: flex;
+    margin-top: 84px; /* clears fixed header without eating the whole viewport */
+    height: min(85vh, 780px);
+    min-height: 320px;
+    overflow: hidden;
     background: #000;
 }
 
 .mySlides {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+}
+
+/* Blurred, darkened backdrop of the same photo fills the frame so the
+   sharp image on top never has to be cropped (no more cut-off heads). */
+.mySlides::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(30px) brightness(0.65);
+    -webkit-backdrop-filter: blur(30px) brightness(0.65);
+    background: rgba(0,0,0,0.45); /* fallback tint for browsers without backdrop-filter */
+    z-index: 1;
+}
+
+.mySlides.active-slide {
+    opacity: 1;
+    z-index: 2;
 }
 
 .mySlides img {
-    vertical-align: middle;
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-}
-
-.lengthy {
-    width: 100%;
-    height: 600px;
-}
-
-.lengthy img {
+    position: relative;
+    z-index: 2;
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    margin: 0 auto;
 }
 
 .prev, .next {
@@ -398,24 +536,29 @@ footer img {
     position: absolute;
     top: 50%;
     width: auto;
-    padding: 16px;
+    padding: 14px 18px;
     margin-top: -22px;
     color: white;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 50%;
     user-select: none;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.35);
+    z-index: 5;
 }
 
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    right: 16px;
+}
+
+.prev {
+    left: 16px;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.7);
+    transform: translateY(-50%) scale(1.08) translateY(0);
 }
 
 .numbertext {
@@ -424,25 +567,41 @@ footer img {
     padding: 8px 12px;
     position: absolute;
     top: 0;
+    z-index: 5;
 }
 
 .slide-dots {
-    padding: 20px 0;
+    padding: 16px 0 6px;
 }
 
 .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 11px;
+    width: 11px;
     margin: 0 5px;
-    background-color: #bbb;
+    background-color: #ccc;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.4s ease, transform 0.2s ease;
 }
 
 .active, .dot:hover {
     background-color: #3498db;
+    transform: scale(1.2);
+}
+
+.scroll-cue {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding-bottom: 10px;
+    animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(4px); opacity: 1; }
 }
 
 .fade {
@@ -495,13 +654,19 @@ footer img {
     }
     
     .slideshow-container {
-        padding-top: 200px;
+        margin-top: 130px;
+        height: 46vh;
+        min-height: 260px;
+    }
+
+    .case-nav-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media screen and (max-width: 480px) {
     .prev, .next {
-        padding: 10px;
+        padding: 10px 12px;
         font-size: 14px;
     }
     
